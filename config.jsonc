@@ -1,13 +1,14 @@
 {
-  "logo": {
-      "type": "builtin",
-      "height": 15,
-      "width": 30,
-      "padding": {
-          "top": 4,
-          "left": 3
-      }
-  },
+    "logo": {
+        "type": "file-raw",
+        "source": "-",
+        "height": 10,
+        "width": 30,
+        "padding": {
+            "top": 11,
+            "left": 4 
+        }
+    },
   "modules": [
       "break",
       {
