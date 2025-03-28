@@ -123,6 +123,6 @@ PS1='\[\e[0;38;2;196;167;231m\][$(date +"%I:%M")] \[\e[0;1;38;5;153m\]\u\[\e[0;1
 
 # fastfetch alias
 customfetch() {
-    pokemon-colorscripts -n magnemite --no-title | fastfetch --file-raw -
+    pokemon-colorscripts -n magnemite --no-title | fastfetch --file-raw - -c /home/jappy/Coding/personal/custom_conf/config.jsonc
 }
 
