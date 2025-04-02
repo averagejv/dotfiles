@@ -1,7 +1,8 @@
 -- NVIM CONFIG FILE
---
+
 -- very cool
 
+-- this prevents : from pushing the line spacing back
 vim.g.python_indent = {}
 -- show function when K is pressed
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
@@ -665,6 +666,34 @@ require("lazy").setup({
 					end,
 				},
 			})
+		end,
+	},
+
+	-- custom splash screens
+	{
+		"goolord/alpha-nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = true,
+		event = "VimEnter",
+		config = function()
+			if vim.fn.argc() == 0 then
+				local alpha = require("alpha")
+				local dashboard = require("alpha.themes.dashboard")
+				-- Configure dashboard as shown above
+				-- Set menu
+				dashboard.section.buttons.val = {
+					dashboard.button("e", "  > New File", ":ene <BAR> startinsert <CR>"),
+					dashboard.button("f", "  > Find File", ":Telescope find_files <CR>"),
+					dashboard.button("r", "  > Recent Files", ":Telescope oldfiles <CR>"),
+					dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
+				}
+
+				-- Set footer
+				dashboard.section.footer.val = {
+					"so we gunna code or what?",
+				}
+				alpha.setup(dashboard.config)
+			end
 		end,
 	},
 
