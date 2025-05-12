@@ -7,11 +7,6 @@ vim.g.python_indent = {}
 -- show function when K is pressed
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
 
--- boutta delete to the shadow realm
-vim.keymap.set("n", "<leader>dd", [["_dd]], { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>d", [["_d]], { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>x", [["_x]], { noremap = true, silent = true })
-
 print("welcome back <3")
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -49,9 +44,9 @@ vim.opt.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end)
+--vim.schedule(function()
+--  vim.opt.clipboard = "unnamedplus"
+--end)
 
 -- Enable break indent
 vim.opt.breakindent = true
