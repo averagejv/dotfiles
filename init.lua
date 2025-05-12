@@ -47,6 +47,8 @@ vim.opt.showmode = false
 --vim.schedule(function()
 --  vim.opt.clipboard = "unnamedplus"
 --end)
+vim.opt.clipboard = ""
+vim.keymap.set({ "n", "x" }, "y", '"+y')
 
 -- Enable break indent
 vim.opt.breakindent = true
