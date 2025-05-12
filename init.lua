@@ -6,6 +6,15 @@
 vim.g.python_indent = {}
 -- show function when K is pressed
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
+<<<<<<< HEAD
+=======
+
+-- boutta delete to the shadow realm
+vim.keymap.set("n", "<leader>dd", [["_dd]], { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>d", [["_d]], { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>x", [["_x]], { noremap = true, silent = true })
+
+>>>>>>> 42a2ab6 (updated lua conf w blackhole)
 print("welcome back <3")
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -875,7 +884,11 @@ require("lazy").setup({
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+<<<<<<< HEAD
 			-- vim.cmd.colorscheme("retrobox")
+=======
+			--vim.cmd.colorscheme("tokyonight-storm")
+>>>>>>> 42a2ab6 (updated lua conf w blackhole)
 		end,
 	},
 
