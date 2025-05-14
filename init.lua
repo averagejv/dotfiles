@@ -933,6 +933,15 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"shaunsingh/nord.nvim",
+		name = "nord",
+		piority = 1000,
+		config = function()
+			--vim.cmd.colorscheme("nord")
+		end,
+	},
+
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
@@ -1008,6 +1017,32 @@ require("lazy").setup({
 			},
 			indent = { enable = true, disable = { "ruby" } },
 		},
+
+		{
+			"ThePrimeagen/harpoon",
+			branch = "harpoon2",
+			dependencies = { "nvim-lua/plenary.nvim" },
+			config = function()
+				local harpoon = require("harpoon")
+
+				harpoon:setup()
+
+				-- Optional: Key mappings (adjust to your preference)
+				vim.keymap.set("n", "<leader>a", function()
+					harpoon:list():add()
+				end, { desc = "Add file to Harpoon" })
+				vim.keymap.set("n", "<leader>h", function()
+					harpoon.ui:toggle_quick_menu(harpoon:list())
+				end, { desc = "Toggle Harpoon menu" })
+				for i = 1, 9 do
+					vim.keymap.set("n", "<leader>" .. i, function()
+						harpoon:list():select(i)
+					end, { desc = "Harpoon file " .. i })
+				end
+				-- Add more mappings as needed
+			end,
+		},
+
 		-- There are additional nvim-treesitter modules that you can use to interact
 		-- with nvim-treesitter. You should go explore a few and see what interests you:
 		--
