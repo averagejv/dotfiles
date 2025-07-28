@@ -2,18 +2,22 @@
 
 -- very cool
 
--- this prevents : from pushing the line spacing back
-vim.g.python_indent = {}
--- show function when K is pressed
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
-vim.keymap.set("n", "<C-\\>", "<cmd>Alpha<cr>", { desc = "Home screen" })
-
 print("welcome back <3")
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+-- custom functions
+-- this prevents : from pushing the line spacing back
+vim.g.python_indent = {}
+-- show function when K is pressed
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
+--vim.keymap.set("n", "<C-\\>", "<cmd>Alpha<cr>", { desc = "Home screen" })
+vim.keymap.set("n", "<leader>\\", "<cmd>Alpha<cr>", { desc = "Home screen" })
+--vim.keymap.set("n", "<C-m>", "<cmd>Neotree toggle<cr>", { desc = "Show sidebar" })
+vim.keymap.set("n", "<leader>m", "<cmd>Neotree toggle<cr>", { desc = "Show sidebar" })
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -816,9 +820,9 @@ require("lazy").setup({
 
 					-- If you prefer more traditional completion keymaps,
 					-- you can uncomment the following lines
-					--['<CR>'] = cmp.mapping.confirm { select = true },
-					--['<Tab>'] = cmp.mapping.select_next_item(),
-					--['<S-Tab>'] = cmp.mapping.select_prev_item(),
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<Tab>"] = cmp.mapping.select_next_item(),
+					["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
 					-- Manually trigger a completion from nvim-cmp.
 					--  Generally you don't need this, because nvim-cmp will display
@@ -1020,6 +1024,24 @@ require("lazy").setup({
 		},
 
 		{
+			"nvim-neo-tree/neo-tree.nvim",
+			branch = "v3.x",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+				"MunifTanjim/nui.nvim",
+			},
+			lazy = false, -- neo-tree will lazily load itself
+			---@module "neo-tree"
+			---@type neotree.Config?
+			opts = {
+				window = {
+					position = "right",
+				},
+			},
+		},
+
+		{
 			"ThePrimeagen/harpoon",
 			branch = "harpoon2",
 			dependencies = { "nvim-lua/plenary.nvim" },
@@ -1061,12 +1083,12 @@ require("lazy").setup({
 	--  Here are some example plugins that I've included in the Kickstart repository.
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
-	-- require 'kickstart.plugins.debug',
-	-- require 'kickstart.plugins.indent_line',
-	-- require 'kickstart.plugins.lint',
-	-- require 'kickstart.plugins.autopairs',
+	--require("kickstart.plugins.debug"),
+	--require("kickstart.plugins.indent_line"),
+	--require("kickstart.plugins.lint"),
+	--require("kickstart.plugins.autopairs"),
 	-- require("kickstart.plugins.neo-tree"),
-	-- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+	--require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
 	--    This is the easiest way to modularize your config.
