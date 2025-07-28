@@ -686,10 +686,10 @@ require("lazy").setup({
 				-- Configure dashboard as shown above
 				-- Set menu
 				dashboard.section.buttons.val = {
-					dashboard.button("e", "  > New File", ":ene <BAR> startinsert <CR>"),
-					dashboard.button("f", "  > Find File", ":Telescope find_files <CR>"),
-					dashboard.button("r", "  > Recent Files", ":Telescope oldfiles <CR>"),
-					dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
+					dashboard.button("e", "  > create", ":ene <BAR> startinsert <CR>"),
+					dashboard.button("f", "  > grep", ":Telescope find_files <CR>"),
+					dashboard.button("r", "  > append", ":Telescope oldfiles <CR>"),
+					dashboard.button("q", "  > bye", ":qa<CR>"),
 				}
 
 				-- Set footer
