@@ -6,6 +6,7 @@
 vim.g.python_indent = {}
 -- show function when K is pressed
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
+vim.keymap.set("n", "<C-\\>", "<cmd>Alpha<cr>", { desc = "Home screen" })
 
 print("welcome back <3")
 -- Set <space> as the leader key
