@@ -11,7 +11,7 @@ vim.g.maplocalleader = " "
 
 -- custom functions
 -- this prevents : from pushing the line spacing back
-vim.g.python_indent = {}
+--vim.g.python_indent = {}
 -- show function when K is pressed
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover documentation" })
 --vim.keymap.set("n", "<C-\\>", "<cmd>Alpha<cr>", { desc = "Home screen" })
@@ -884,7 +884,7 @@ require("lazy").setup({
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 			-- vim.cmd.colorscheme("retrobox")
-			--vim.cmd.colorscheme("tokyonight-storm")
+			--vim.cmd.colorscheme("tokyonight-moon")
 		end,
 	},
 
@@ -918,8 +918,7 @@ require("lazy").setup({
 					nvimtree = true,
 				},
 			})
-
-			-- vim.cmd.colorscheme("catppuccin-mocha") -- Apply the colorscheme
+			--vim.cmd.colorscheme("catppuccin-mocha") -- Apply the colorscheme
 		end,
 	},
 
@@ -929,11 +928,64 @@ require("lazy").setup({
 		priority = 1000,
 		config = function()
 			require("rose-pine").setup({
-				variant = "main",
+				variant = "main", -- "auto" | "main" | "moon" | "dawn"
 				dark_variant = "main",
+
+				enable = {
+					terminal = true,
+					legacy_highlights = true, -- if you want older highlight groups
+					migrations = true,
+				},
+
+				styles = {
+					bold = false,
+					italic = false,
+					transparency = false,
+				},
+
+				palette = {
+					-- override specific colors if you want
+					-- example: base = "#111111",
+				},
+
 				dim_inactive_windows = false,
 				extend_background_behind_borders = false,
-			}) -- Options: "main", "moon", "dawn"
+				bold_vert_split = false,
+				dim_nc_background = false,
+				disable_background = false,
+				disable_float_background = false,
+				disable_italics = false,
+
+				highlight_groups = {},
+
+				groups = {
+					background = "base",
+					background_nc = "_experimental_nc",
+					panel = "surface",
+					panel_nc = "base",
+					border = "highlight_med",
+					comment = "muted",
+					link = "iris",
+					punctuation = "subtle",
+
+					error = "love",
+					hint = "iris",
+					info = "foam",
+					warn = "gold",
+
+					headings = {
+						h1 = "iris",
+						h2 = "foam",
+						h3 = "rose",
+						h4 = "gold",
+						h5 = "pine",
+						h6 = "foam",
+					},
+				},
+				before_highlight = function(group, highlight, palette)
+					-- optional manual override
+				end,
+			})
 			vim.cmd.colorscheme("rose-pine")
 		end,
 	},
