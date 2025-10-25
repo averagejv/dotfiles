@@ -20,7 +20,9 @@ vim.keymap.set("n", "<leader>\\", "<cmd>Alpha<cr>", { desc = "Home screen" })
 vim.keymap.set("n", "<leader>m", "<cmd>Neotree toggle<cr>", { desc = "Show sidebar" })
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
+
+vim.o.linebreak = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -60,7 +62,6 @@ vim.opt.breakindent = true
 
 -- Save undo history
 vim.opt.undofile = true
-
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -81,7 +82,7 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = { tab = "» ", trail = " ", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
@@ -691,8 +692,8 @@ require("lazy").setup({
 				-- Set menu
 				dashboard.section.buttons.val = {
 					dashboard.button("e", "  > create", ":ene <BAR> startinsert <CR>"),
-					dashboard.button("f", "  > grep", ":Telescope find_files <CR>"),
-					dashboard.button("r", "  > append", ":Telescope oldfiles <CR>"),
+					dashboard.button("f", "  > append", ":Telescope find_files <CR>"),
+					dashboard.button("r", "  > grep", ":Telescope oldfiles <CR>"),
 					dashboard.button("q", "  > bye", ":qa<CR>"),
 				}
 
@@ -1117,6 +1118,12 @@ require("lazy").setup({
 				-- Add more mappings as needed
 			end,
 		},
+
+		--{
+		--'vyfor/cord.nvim',
+		--build = ':Cord update',
+		-- opts = {}
+		--}
 
 		-- There are additional nvim-treesitter modules that you can use to interact
 		-- with nvim-treesitter. You should go explore a few and see what interests you:
